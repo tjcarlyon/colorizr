@@ -1,25 +1,36 @@
-
 class String
-	def self.color_options
-		
-			{black: 30, red: 31, green: 32, yellow: 33, blue: 34, pink: 35, light_gray: 37, light_blue: 94, white: 97}
-		
-	end
+  @colors = {
+                  red:        31,
+                  green:      32,
+                  yellow:     33,
+                  blue:       34,
+                  pink:       91,
+                  light_blue: 94,
+                  white:      97,
+                  light_grey: 37,
+                  black:      30
+              }
 
-	# lists all available colors
-	instance_eval do
-		def colors
-			color_options.keys
-		end
-	end
+  def self.create_colors
+    @colors.each do |key,value|
+      self.send(:define_method, "#{key.to_s}") do
+        "\e[#{value.to_s}m" + self.to_s + "\e[0m"
+      end
+    end
+  end
 
-	# generates colors
-	def self.create_colors
-		color_options.each do |key, value|
-			self.send(:define_method, "#{key}") do
-				"\e[#{value}m#{self}\e[39m"
-			end
-		end
-	end
-	create_colors
+  String.create_colors
 
+  def self.colors
+    @colors.keys
+  end
+
+  def self.sample_colors
+    String.colors.each do |color|
+      puts "This is " + color.to_s.instance_eval(color.to_s)
+    end
+  end
+end
+
+#uncomment String.sample_colors  when running in IRB to see the sample colors
+#String.sample_colors 
