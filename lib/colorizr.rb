@@ -26,11 +26,20 @@ class String
   end
 
   def self.sample_colors
+  	index = 1
+  	puts ""
     String.colors.each do |color|
-      puts "This is " + color.to_s.instance_eval(color.to_s)
+      puts "#{index} This is " + color.to_s.instance_eval(color.to_s)
+      index += 1
     end
+    puts ""
   end
 end
+ 
+
+#String.sample_colors
+
+
 
 
 

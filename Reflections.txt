@@ -1,5 +1,5 @@
 How does your gem take advantage of Ruby’s metaprogramming capabilities?
-The define_method module method to write a series of String class methods without having to write each out separately.
+The define_method module method to write a series of String class methods without having to write each out separately and the instant_eval that selects one object and returns that value.
 
 How long did you spend working on this project?  I had major computer issue for the past 7 to 10 days.  I was in the weeds with no laptop access for a while.  I reviewed the lessons while I was at work until I had a good grasp.  Once my laptop was repaird I was able to dive right in.
 
