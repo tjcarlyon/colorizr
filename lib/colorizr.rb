@@ -32,5 +32,5 @@ class String
   end
 end
 
-#uncomment String.sample_colors  when running in IRB to see the sample colors
-#String.sample_colors 
+
+
